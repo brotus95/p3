@@ -7,7 +7,9 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-
+.hidden {
+    display: none;
+}
 
 .header {
     display: flex;
@@ -16,15 +18,30 @@ body {
      width: 100%;
     height: 100px;
     background-color: $white;
+    position: relative;
+    &__back {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        left: 35px;
+        top: 40%;
+        font-size: 20px;
+        & a {
+            color:$black;
+        }
+    }
     &__logo {
         font-family: 'Shrikhand', cursive;
         margin: 0;
-        color: $black;
+        & a {
+            color: $black;
+            text-decoration: none;
+        }
     }
 }
 
 .location {
-    background-color: #EAEAEA;
+    background-color: $background-block;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,11 +52,20 @@ body {
 
 .reserv {
     width: 100%;
-    background-color: #F6F6F6;
+    background-color: $background-block-light;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 30px 0px;
+    &__heading {
+        text-align: center;
+        margin: auto;
+        max-width: 250px;
+    }
+    &__byline {
+        text-align: center;
+        padding: 0px 21px 10px 21px;
+    }
     &__btn {
         opacity: 1;
         color: $white;
@@ -62,21 +88,33 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 30px 0px;
+    &__heading {
+        margin-left: -130px;
+    }
     &__steps {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 30px;
         justify-content: center;
     }
     &__step {
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: #F6F6F6;
+        background-color: $background-block-light;
         padding: 5px 50px 5px 0px;
         width: auto;
         height: auto;
         border-radius: 30px;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.16);
+        &:hover {
+            cursor: pointer;
+            transition: 0.3s;
+            background-color: #F5EDFF;
+            & i {
+                color: $colour-primary;
+            }
+        }
     }
     &__number {
         background-color: $colour-primary;
@@ -90,10 +128,13 @@ body {
 }
 
 .restaurant {
-    background-color: #f2f2f2;
+    background-color: $background-restaurant;
     width: 100%;
     margin: 0px;
     padding: 30px 0px;
+    & h2 {
+        margin-left: 80px;
+    }
     &-container {
         display: flex;
         flex-direction: column;
@@ -105,14 +146,26 @@ body {
         flex-direction: column;
         width: 90%;
         border-radius: 20px;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.16);
         &__img {
             width: 100%;
             height: 200px;
+            position: relative;
             &>img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
                 border-radius: 20px 20px 0 0;
+            }
+            &__new {
+                position: absolute;
+                background-color: #99E2D0;
+                color:#008766;
+                top:20px;
+                right: 20px;
+                &>p {
+                    padding: 0px 20px;
+                }
             }
         }
         &__container {
@@ -128,8 +181,153 @@ body {
                 margin-right: 20px;
             }
         }
+        &__heading {
+            margin-bottom: 4px;
+        }
+        &__byline {
+            margin-top: 0px;
+        }
+        &:hover {
+            cursor: pointer;
+            box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.16);
+        }
     }
 }
+
+.img {
+    width: 100%;
+    height: 60vh;
+    &__restaurant {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+#menu {
+    display: flex;
+}
+
+.main-menu {
+    background-color: #F6F6F6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px 30px 0px 0px;
+    width: 100%;
+    margin-top: -90px;
+    & h2 {
+        font-family: 'Shrikhand', 'Raleway';
+    }
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+    padding-bottom: 30px;
+    width: 90%;
+    & h3 {
+        font-family: 'Roboto', 'Raleway';
+        text-transform: uppercase;
+        font-weight: 350;
+        position: relative;
+        &::after {
+            content: '';
+            width: 50px;
+            height: 4px;
+            background: #99e2d0;
+            position: absolute;
+            left: 0px;
+            bottom: -10px;
+        }
+    }
+    &-dish-price {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    &__block {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        border-radius: 20px;
+        flex-direction: column;
+        background-color: white;
+        box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.1);
+        & >h4 {
+            padding: 20px 0px 5px 20px;
+            margin: 0px;
+        }
+        &__dish {
+            margin-left: 20px;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 80%;
+            & >p {
+                padding:0px 0px 15px 0px;
+                margin:0px;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
+        &__price {
+            padding-right: 20px;
+            padding-left: 5px;
+            font-weight: bold;
+        }
+        &__validation {
+            display: none;
+            position: absolute;
+            right: 0px;
+            height: 100%;
+            background-color: #99E2D0;
+            border-radius: 0px 20px 20px 0px;
+            padding: 0px 20px;
+            & i {
+                color: white;
+                font-size: 30px;
+            }
+        }
+        &:hover .menu__block__validation {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform-origin: right;
+            animation: scale-in-hor-right 0.5s ease;
+        }
+    }
+    & .menu__block:hover .menu-dish-price {
+        padding-right: 80px;
+        transition: 0.5s ease;
+        width: 80%;
+    }
+    &-container-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__btn {
+        opacity: 1;
+        background: linear-gradient(180deg, #ff79da 0%, #9356dc 100%);
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+        color: white;
+        border-radius: 200px;
+        margin: 40px 0px;
+        padding: 15px 40px;
+        &:hover {
+            opacity: 0.7;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.6);
+        }
+    }
+}
+
 
 .footer {
     background: #353535;
