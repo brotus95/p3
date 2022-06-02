@@ -132,7 +132,7 @@ body {
 .restaurant h2 {
   margin-left: 80px;
 }
-@media screen and (max-width: ) {
+@media screen and (max-width: 599px) {
   .restaurant h2 {
     margin-left: 25px;
   }
@@ -392,10 +392,12 @@ body {
   margin-right: 15px;
   height: auto;
 }
-.footer-nav__link p {
+.footer-nav__link a {
   display: inline-block;
   padding-bottom: 10px;
   margin: 0px;
+  color: #fff;
+  text-decoration: none;
 }
 
 /* ----------------------------------------------
