@@ -1,10 +1,17 @@
-body {
-  margin: 0px;
-  font-family: "Roboto", sans-serif;
+.btn {
+  opacity: 1;
+  background: linear-gradient(180deg, #FF79DA 0%, #9356DC 100%);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  border-radius: 200px;
+  margin: 40px 0px;
+  padding: 15px 40px;
 }
-
-.hidden {
-  display: none;
+.btn:hover {
+  opacity: 0.7;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.6);
 }
 
 .header {
@@ -36,6 +43,206 @@ body {
   text-decoration: none;
 }
 
+.footer {
+  background: #353535;
+  color: #fff;
+  padding: 30px 0px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 50px 20px 30px;
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .footer {
+    padding: 20px 50px 20px 40px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .footer {
+    padding: 20px 50px 20px 60px;
+  }
+}
+.footer a {
+  color: #fff;
+  text-decoration: none;
+}
+.footer__logo {
+  font-family: "Shrikhand", cursive;
+  font-size: 20px;
+}
+.footer-nav ul {
+  list-style: none;
+  padding-left: 0px;
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 992px) {
+  .footer-nav ul {
+    flex-direction: row;
+    gap: 10%;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .footer-nav ul {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.footer-nav__link {
+  padding-bottom: 5px;
+}
+.footer-nav__link i {
+  margin-right: 15px;
+  height: auto;
+}
+.footer-nav__link a {
+  display: inline-flex;
+  padding-bottom: 10px;
+  margin: 0px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-bottom: 30px;
+  width: 90%;
+}
+.menu__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  position: relative;
+}
+.menu__heading i {
+  font-size: 30px;
+  position: absolute;
+  top: 40%;
+}
+.menu__heading .fas {
+  color: transparent;
+  background: linear-gradient(180deg, #FF79DA 0%, #9356DC 100%);
+  background-clip: text;
+  opacity: 0;
+  transition: all 200ms ease-in-out;
+  transform: scale(1);
+}
+.menu__heading .fas:hover {
+  opacity: 1;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+.menu h3 {
+  font-family: "Roboto", "Raleway";
+  text-transform: uppercase;
+  font-weight: 350;
+  position: relative;
+}
+.menu h3::after {
+  content: "";
+  width: 50px;
+  height: 4px;
+  background: #99E2D0;
+  position: absolute;
+  left: 0px;
+  bottom: -10px;
+}
+.menu-dish-price {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.menu__block {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 20px;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.1);
+}
+.menu__block > h4 {
+  padding: 20px 0px 5px 20px;
+  margin: 0px;
+}
+.menu__block__dish {
+  margin-left: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 80%;
+}
+.menu__block__dish > p {
+  padding: 0px 0px 15px 0px;
+  margin: 0px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.menu__block__price {
+  padding-right: 20px;
+  padding-left: 5px;
+  font-weight: bold;
+}
+.menu__block__validation {
+  display: none;
+  position: absolute;
+  right: 0px;
+  height: 100%;
+  background-color: #99E2D0;
+  border-radius: 0px 20px 20px 0px;
+  padding: 0px 20px;
+}
+.menu__block__validation i {
+  color: #fff;
+  font-size: 30px;
+  -webkit-animation: rotate-in-center 0.5s both;
+  animation: rotate-in-center 0.5s both;
+}
+.menu__block:hover .menu__block__validation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: right;
+  animation: scale-in-hor-right 0.5s ease-in-out;
+}
+.menu .menu__block:hover .menu-dish-price {
+  padding-right: 80px;
+  transition: 0.5s ease;
+  width: 80%;
+}
+@media screen and (min-width: 992px) {
+  .menu .menu__block:hover .menu-dish-price {
+    width: 95%;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .menu .menu__block:hover .menu-dish-price {
+    width: 90%;
+  }
+}
+.menu-container-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menu__btn {
+  opacity: 1;
+  background: linear-gradient(180deg, #FF79DA 0%, #9356DC 100%);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  border-radius: 200px;
+  margin: 40px 0px;
+  padding: 15px 40px;
+}
+.menu__btn:hover {
+  opacity: 0.7;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.6);
+}
+
 .location {
   background-color: #EAEAEA;
   display: flex;
@@ -63,27 +270,13 @@ body {
   text-align: center;
   padding: 0px 21px 10px 21px;
 }
-.reserv__btn {
-  opacity: 1;
-  color: #fff;
-  background: linear-gradient(180deg, #FF79DA 0%, #9356DC 100%);
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
-  padding: 10px 30px;
-  border-radius: 150px;
-}
-.reserv__btn:hover {
-  opacity: 0.7;
-  cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.6);
-}
 
 .working {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px 0px;
+  padding: 30px 0px 60px 0px;
 }
 .working__heading {
   margin-left: -130px;
@@ -97,7 +290,7 @@ body {
 .working__step {
   display: flex;
   align-items: center;
-  justify-content: center;
+  position: relative;
   background-color: #F6F6F6;
   padding: 5px 50px 5px 0px;
   width: auto;
@@ -118,23 +311,40 @@ body {
   color: #fff;
   padding: 3px 7px;
   border-radius: 500px;
+  position: absolute;
+  top: 30%;
+  left: -10px;
 }
 .working__icon {
-  margin: 0px 20px;
+  margin: 0px 20px 0px 30px;
+}
+
+body {
+  margin: 0px;
+  font-family: "Roboto", sans-serif;
+}
+
+.hidden {
+  display: none;
 }
 
 .restaurant {
   background-color: #f2f2f2;
   width: 100%;
   margin: 0px;
-  padding: 30px 0px;
+  padding: 30px 0px 60px 0px;
 }
 .restaurant h2 {
-  margin-left: 80px;
+  margin: 0px 0px 20px 80px;
 }
-@media screen and (max-width: 599px) {
+@media screen and (min-width: 992px) {
   .restaurant h2 {
-    margin-left: 25px;
+    margin-left: 80px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .restaurant h2 {
+    margin-left: 40px;
   }
 }
 .restaurant-container {
@@ -143,12 +353,36 @@ body {
   align-items: center;
   gap: 25px;
 }
+@media screen and (min-width: 992px) {
+  .restaurant-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .restaurant-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}
 .restaurant__card {
   display: flex;
   flex-direction: column;
   width: 90%;
   border-radius: 20px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.16);
+}
+@media screen and (min-width: 992px) {
+  .restaurant__card {
+    width: 40%;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .restaurant__card {
+    width: 40%;
+  }
 }
 .restaurant__card__img {
   width: 100%;
@@ -199,6 +433,11 @@ body {
   transition: all 200ms ease-in-out;
   transform: scale(1);
 }
+.restaurant__card__container-icon .fas:hover {
+  opacity: 1;
+  transform: scale(1.2);
+  cursor: pointer;
+}
 .restaurant__card__heading {
   margin-bottom: 4px;
 }
@@ -209,14 +448,15 @@ body {
   cursor: pointer;
   box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.16);
 }
-.restaurant__card:hover .restaurant__card__container-icon .fas {
-  opacity: 1;
-  transform: scale(1.2);
-}
 
 .img {
   width: 100%;
-  height: 60vh;
+  height: 40vh;
+}
+@media screen and (min-width: 992px) {
+  .img {
+    height: 60vh;
+  }
 }
 .img__restaurant {
   width: 100%;
@@ -236,7 +476,12 @@ body {
   justify-content: center;
   border-radius: 30px 30px 0px 0px;
   width: 100%;
-  margin-top: -90px;
+  margin-top: -100px;
+}
+@media screen and (min-width: 992px) {
+  .main-menu {
+    margin-top: -90px;
+  }
 }
 .main-menu h2 {
   font-family: "Shrikhand", "Raleway";
@@ -303,7 +548,7 @@ body {
   cursor: pointer;
   border-radius: 20px;
   flex-direction: column;
-  background-color: white;
+  background-color: #fff;
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.1);
 }
 .menu__block > h4 {
@@ -337,7 +582,7 @@ body {
   padding: 0px 20px;
 }
 .menu__block__validation i {
-  color: white;
+  color: #fff;
   font-size: 30px;
   -webkit-transform: rotate-in-center(180deg);
   transform: rotate-in-center(180deg);
@@ -356,50 +601,57 @@ body {
   transition: 0.5s ease;
   width: 80%;
 }
+@media screen and (min-width: 992px) {
+  .menu .menu__block:hover .menu-dish-price {
+    width: 95%;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .menu .menu__block:hover .menu-dish-price {
+    width: 90%;
+  }
+}
 .menu-container-btn {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.menu__btn {
-  opacity: 1;
-  background: linear-gradient(180deg, #ff79da 0%, #9356dc 100%);
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
-  color: white;
-  border-radius: 200px;
-  margin: 40px 0px;
-  padding: 15px 40px;
-}
-.menu__btn:hover {
-  opacity: 0.7;
-  cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.6);
+
+.fa-gradient {
+  background: -webkit-gradient(linear, left top, left bottom, from(#FF79DA), to(#9356DC));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.footer {
-  background: #353535;
-  color: #fff;
-  padding: 30px 0px;
+.loading-screen {
+  position: fixed;
+  height: 100vh;
+  inset: 0;
+  background-color: #ffffff;
+  opacity: 0.9;
+  animation: loading-disappear 200ms 3s forwards;
+  display: grid;
+  place-items: center;
+  z-index: 1;
 }
-.footer-nav ul {
-  list-style: none;
-}
-.footer-nav__link {
-  padding-bottom: 5px;
-}
-.footer-nav__link i {
-  margin-right: 15px;
-  height: auto;
-}
-.footer-nav__link a {
-  display: inline-block;
-  padding-bottom: 10px;
-  margin: 0px;
-  color: #fff;
-  text-decoration: none;
+.loading-screen i {
+  animation: rotate-in-center 3s infinite linear;
 }
 
+@keyframes loading-disappear {
+  0% {
+    visibility: visible;
+    opacity: 0.9;
+  }
+  70% {
+    opacity: 0.9;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
 /* ----------------------------------------------
  * Generated by Animista on 2022-5-30 16:22:12
  * Licensed under FreeBSD License.

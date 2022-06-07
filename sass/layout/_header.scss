@@ -1,0 +1,29 @@
+@use "../utils/variables";
+@use "../utils/mixins" as m;
+
+.header {
+    @include m.flex-row;
+     width: 100%;
+    height: 100px;
+    background-color: variables.$white;
+    position: relative;
+    &__back {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        left: 35px;
+        top: 40%;
+        font-size: 20px;
+        & a {
+            color:variables.$black;
+        }
+    }
+    &__logo {
+        font-family: 'Shrikhand', cursive;
+        margin: 0;
+        & a {
+            color: variables.$black;
+            text-decoration: none;
+        }
+    }
+}

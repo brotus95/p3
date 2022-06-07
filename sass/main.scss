@@ -1,6 +1,18 @@
-@import "./utils/variables";
-@import "./utils/functions";
-@import "./utils/mixins";
+@use "./utils/variables" as v;
+@use "./utils/functions" as f;
+@use "./utils/mixins" as m;
+
+@import "./base/typography";
+
+@import "./components/btn";
+
+@import "./layout/header";
+@import "./layout/footer";
+@import "./layout/menu";
+
+@import "./pages/location";
+@import "./pages/reserv";
+@import "./pages/working";
 
 body {
     margin: 0px;
@@ -11,131 +23,18 @@ body {
     display: none;
 }
 
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-     width: 100%;
-    height: 100px;
-    background-color: $white;
-    position: relative;
-    &__back {
-        width: 50px;
-        height: 50px;
-        position: absolute;
-        left: 35px;
-        top: 40%;
-        font-size: 20px;
-        & a {
-            color:$black;
-        }
-    }
-    &__logo {
-        font-family: 'Shrikhand', cursive;
-        margin: 0;
-        & a {
-            color: $black;
-            text-decoration: none;
-        }
-    }
-}
-
-.location {
-    background-color: $background-block;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    &__street {
-        padding-left: 10px;
-    }
-}
-
-.reserv {
-    width: 100%;
-    background-color: $background-block-light;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px 0px;
-    &__heading {
-        text-align: center;
-        margin: auto;
-        max-width: 250px;
-    }
-    &__byline {
-        text-align: center;
-        padding: 0px 21px 10px 21px;
-    }
-    &__btn {
-        opacity: 1;
-        color: $white;
-        background: linear-gradient(180deg, $colour-secondary 0%, $colour-primary 100%);
-        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
-        padding: 10px 30px;
-        border-radius: 150px;
-        &:hover {
-            opacity: 0.7;
-            cursor: pointer;
-            transition: 0.3s;
-            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.6);
-        }
-    }
-}
-
-.working {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px 0px;
-    &__heading {
-        margin-left: -130px;
-    }
-    &__steps {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-        justify-content: center;
-    }
-    &__step {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: $background-block-light;
-        padding: 5px 50px 5px 0px;
-        width: auto;
-        height: auto;
-        border-radius: 30px;
-        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.16);
-        &:hover {
-            cursor: pointer;
-            transition: 0.3s;
-            background-color: #F5EDFF;
-            & i {
-                color: $colour-primary;
-            }
-        }
-    }
-    &__number {
-        background-color: $colour-primary;
-        color: $white;
-        padding:3px 7px;
-        border-radius: 500px;
-    }
-    &__icon {
-        margin: 0px 20px;
-    }
-}
-
 .restaurant {
-    background-color: $background-restaurant;
+    background-color: v.$background-restaurant;
     width: 100%;
     margin: 0px;
-    padding: 30px 0px;
+    padding: 30px 0px 60px 0px;
     & h2 {
-        margin-left: 80px;
-        @include mobile-only{
-            margin-left: 25px;
+        margin:0px 0px 20px 80px;
+        @include m.desktop-only{
+            margin-left: 80px;
+        }
+        @include m.tablet-only{
+            margin-left: 40px;
         }
     }
     &-container {
@@ -143,6 +42,16 @@ body {
         flex-direction: column;
         align-items: center;
         gap: 25px;
+        @include m.desktop-only {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        @include m.tablet-only {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
     }
     &__card {
         display: flex;
@@ -150,6 +59,12 @@ body {
         width: 90%;
         border-radius: 20px;
         box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.16);
+        @include m.desktop-only {
+            width: 40%;
+        }
+        @include m.tablet-only {
+            width: 40%;
+        }
         &__img {
             width: 100%;
             height: 200px;
@@ -175,7 +90,7 @@ body {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: $white;
+            background: v.$white;
             border-radius: 0px 0px 20px 20px;
             position: relative;
             &-info {
@@ -191,11 +106,16 @@ body {
                 }
                 & .fas {
                     color: transparent;
-                    background:linear-gradient(to top, $colour-secondary, $colour-primary);
+                    background:linear-gradient(to top, v.$colour-secondary, v.$colour-primary);
                     background-clip: text;
                     opacity: 0;
                     transition: all 200ms ease-in-out;
                     transform: scale(1);
+                    &:hover {
+                        opacity: 1;
+                        transform: scale(1.2);
+                        cursor: pointer;
+                    }
                 }
             }
         }
@@ -208,17 +128,16 @@ body {
         &:hover {
             cursor: pointer;
             box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.16);
-            & .restaurant__card__container-icon .fas {
-                opacity: 1;
-                transform: scale(1.2);
-            }
         }
     }
 }
 
 .img {
     width: 100%;
-    height: 60vh;
+    height: 40vh;
+    @include m.desktop-only{
+        height: 60vh;
+    }
     &__restaurant {
         width: 100%;
         height: 100%;
@@ -232,13 +151,13 @@ body {
 
 .main-menu {
     background-color: #F6F6F6;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    @include m.flex-column;
     border-radius: 30px 30px 0px 0px;
     width: 100%;
-    margin-top: -90px;
+    margin-top: -100px;
+    @include m.desktop-only{
+        margin-top: -90px;
+    }
     & h2 {
         font-family: 'Shrikhand', 'Raleway';
     }
@@ -251,9 +170,7 @@ body {
     padding-bottom: 30px;
     width: 90%;
     &__heading {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
+        @include m.flex-row-around;
         width: 100%;
         position: relative;
         & i {
@@ -263,7 +180,7 @@ body {
         }
         & .fas {
             color: transparent;
-            background:linear-gradient(to top, $colour-secondary, $colour-primary);
+            background:linear-gradient(to top, v.$colour-secondary, v.$colour-primary);
             background-clip: text;
             opacity: 0;
             transition: all 200ms ease-in-out;
@@ -304,7 +221,7 @@ body {
         cursor: pointer;
         border-radius: 20px;
         flex-direction: column;
-        background-color: white;
+        background-color:v.$white;
         box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.1);
         & >h4 {
             padding: 20px 0px 5px 20px;
@@ -336,7 +253,7 @@ body {
             border-radius: 0px 20px 20px 0px;
             padding: 0px 20px;
             & i {
-                color: white;
+                color:v.$white;
                 font-size: 30px;
                 -webkit-transform: rotate-in-center(180deg);
                 transform: rotate-in-center(180deg);
@@ -345,9 +262,7 @@ body {
             }
         }
         &:hover .menu__block__validation {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            @include m.flex-row;
             transform-origin: right;
             animation: scale-in-hor-right 0.5s ease-in-out;
         }
@@ -356,54 +271,52 @@ body {
         padding-right: 80px;
         transition: 0.5s ease;
         width: 80%;
+        @include m.desktop-only{
+            width: 95%;
+        }
+        @include m.tablet-only{
+            width: 90%;
+        }
     }
     &-container-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    &__btn {
-        opacity: 1;
-        background: linear-gradient(180deg, #ff79da 0%, #9356dc 100%);
-        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
-        color: white;
-        border-radius: 200px;
-        margin: 40px 0px;
-        padding: 15px 40px;
-        &:hover {
-            opacity: 0.7;
-            cursor: pointer;
-            transition: 0.3s;
-            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.6);
-        }
+        @include m.flex-row;
     }
 }
 
+.fa-gradient {
+	background: -webkit-gradient(linear, left top, left bottom, from(v.$colour-secondary), to(v.$colour-primary));
+	-webkit-background-clip: text;
+    background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
 
-.footer {
-    background: #353535;
-    color: $white;
-    padding:30px 0px;
-    &-nav {
-        & ul {
-            list-style: none;
-        }
-        &__link {
-            padding-bottom: 5px;
-            & i {
-                margin-right: 15px;
-                height: auto;
-            }
-            & a {
-                display: inline-block;
-                padding-bottom: 10px;
-                margin: 0px;
-                color: $white;
-                text-decoration: none;
-            }
-        }
+.loading-screen {
+    position:fixed;
+    height: 100vh; //whole screen
+    inset: 0; //top right bottom left
+    background-color: #ffffff;
+    opacity: 0.9;
+    animation: loading-disappear 200ms 3s forwards;
+    display: grid;
+    place-items: center;
+    z-index: 1;
+    & i {
+        animation: rotate-in-center 3s infinite linear;
     }
+}
 
+@keyframes loading-disappear {
+    0%{
+        visibility: visible;
+        opacity: 0.9;
+    }
+    70% {
+        opacity: 0.9;
+    }
+    100% {
+        visibility: hidden;
+        opacity: 0;
+    }
 }
 
 /* ----------------------------------------------

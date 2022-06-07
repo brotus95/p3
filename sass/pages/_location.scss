@@ -1,0 +1,10 @@
+@use  "../utils/variables" as v;
+@use  "../utils/mixins" as m;
+
+.location {
+    background-color: v.$background-block;
+    @include m.flex-row;
+    &__street {
+        padding-left: 10px;
+    }
+}

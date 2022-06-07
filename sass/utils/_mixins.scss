@@ -1,5 +1,52 @@
+@use "./variables";
+
 @mixin mobile-only {
-    @media screen and (max-width: map-get($breakpoints, mobile)){
+    @media screen and (max-width: map-get(variables.$breakpoints, mobile)){
         @content;
     }
+}
+
+@mixin tablet-only {
+    @media screen and (min-width: map-get(variables.$breakpoints, tablet)) and (max-width: map-get(variables.$breakpoints, desktop)) {
+        @content;
+    }
+}
+
+@mixin desktop-only {
+    @media screen and (min-width: map-get(variables.$breakpoints, desktop)){
+        @content;
+    }
+}
+
+@mixin flex-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-row-around {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+@mixin flex-row-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+@mixin gradient {
+    background: linear-gradient(180deg,variables.$colour-secondary 0%, variables.$colour-primary 100%);
+}
+
+@mixin shadow {
+
 }

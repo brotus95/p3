@@ -1,0 +1,109 @@
+@use  "../utils/variables" as v;
+@use  "../utils/mixins" as m;
+
+.restaurant {
+    background-color: v.$background-restaurant;
+    width: 100%;
+    margin: 0px;
+    padding: 30px 0px 60px 0px;
+    & h2 {
+        margin:0px 0px 20px 80px;
+        @include m.desktop-only{
+            margin-left: 80px;
+        }
+        @include m.tablet-only{
+            margin-left: 40px;
+        }
+    }
+    &-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        @include m.desktop-only {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        @include m.tablet-only {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+    }
+    &__card {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        border-radius: 20px;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.16);
+        @include m.desktop-only {
+            width: 40%;
+        }
+        @include m.tablet-only {
+            width: 40%;
+        }
+        &__img {
+            width: 100%;
+            height: 200px;
+            position: relative;
+            &>img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 20px 20px 0 0;
+            }
+            &__new {
+                position: absolute;
+                background-color: v.$colour-tertiary;
+                color:#008766;
+                top:20px;
+                right: 20px;
+                &>p {
+                    padding: 0px 20px;
+                }
+            }
+        }
+        &__container {
+            @include m.flex-row-between;
+            background: v.$white;
+            border-radius: 0px 0px 20px 20px;
+            position: relative;
+            &-info {
+                margin-left: 20px;
+            }
+            &-icon {
+                margin-right: 20px;
+                & i {
+                    font-size: 30px;
+                    position: absolute;
+                    top:40%;
+                    right: 20px;
+                }
+                & .fas {
+                    color: transparent;
+                    @include m.gradient;
+                    background-clip: text;
+                    opacity: 0;
+                    transition: all 200ms ease-in-out;
+                    transform: scale(1);
+                    &:hover {
+                        opacity: 1;
+                        transform: scale(1.2);
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        &__heading {
+            margin-bottom: 4px;
+        }
+        &__byline {
+            margin-top: 0px;
+        }
+        &:hover {
+            cursor: pointer;
+            box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.16);
+        }
+    }
+}
