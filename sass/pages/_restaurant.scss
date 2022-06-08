@@ -21,14 +21,10 @@
         align-items: center;
         gap: 25px;
         @include m.desktop-only {
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-around;
+            @include m.flex-row-wrap-around;
         }
         @include m.tablet-only {
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-around;
+            @include m.flex-row-wrap-around;
         }
     }
     &__card {

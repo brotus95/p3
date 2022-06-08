@@ -40,6 +40,12 @@
 @mixin flex-row-between {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+}
+
+@mixin flex-row-wrap-around {
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-around;
 }
 

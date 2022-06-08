@@ -3,6 +3,7 @@
 @use "./utils/mixins" as m;
 
 @import "./base/typography";
+@import "./base/base";
 
 @import "./components/btn";
 
@@ -13,124 +14,7 @@
 @import "./pages/location";
 @import "./pages/reserv";
 @import "./pages/working";
-
-body {
-    margin: 0px;
-    font-family: 'Roboto', sans-serif;
-}
-
-.hidden {
-    display: none;
-}
-
-.restaurant {
-    background-color: v.$background-restaurant;
-    width: 100%;
-    margin: 0px;
-    padding: 30px 0px 60px 0px;
-    & h2 {
-        margin:0px 0px 20px 80px;
-        @include m.desktop-only{
-            margin-left: 80px;
-        }
-        @include m.tablet-only{
-            margin-left: 40px;
-        }
-    }
-    &-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 25px;
-        @include m.desktop-only {
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-        @include m.tablet-only {
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-    }
-    &__card {
-        display: flex;
-        flex-direction: column;
-        width: 90%;
-        border-radius: 20px;
-        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.16);
-        @include m.desktop-only {
-            width: 40%;
-        }
-        @include m.tablet-only {
-            width: 40%;
-        }
-        &__img {
-            width: 100%;
-            height: 200px;
-            position: relative;
-            &>img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                border-radius: 20px 20px 0 0;
-            }
-            &__new {
-                position: absolute;
-                background-color: #99E2D0;
-                color:#008766;
-                top:20px;
-                right: 20px;
-                &>p {
-                    padding: 0px 20px;
-                }
-            }
-        }
-        &__container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: v.$white;
-            border-radius: 0px 0px 20px 20px;
-            position: relative;
-            &-info {
-                margin-left: 20px;
-            }
-            &-icon {
-                margin-right: 20px;
-                & i {
-                    font-size: 30px;
-                    position: absolute;
-                    top:40%;
-                    right: 20px;
-                }
-                & .fas {
-                    color: transparent;
-                    background:linear-gradient(to top, v.$colour-secondary, v.$colour-primary);
-                    background-clip: text;
-                    opacity: 0;
-                    transition: all 200ms ease-in-out;
-                    transform: scale(1);
-                    &:hover {
-                        opacity: 1;
-                        transform: scale(1.2);
-                        cursor: pointer;
-                    }
-                }
-            }
-        }
-        &__heading {
-            margin-bottom: 4px;
-        }
-        &__byline {
-            margin-top: 0px;
-        }
-        &:hover {
-            cursor: pointer;
-            box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.16);
-        }
-    }
-}
+@import "./pages/restaurant";
 
 .img {
     width: 100%;
@@ -158,137 +42,11 @@ body {
     @include m.desktop-only{
         margin-top: -90px;
     }
-    & h2 {
+    /*& h2 {
         font-family: 'Shrikhand', 'Raleway';
-    }
+    }*/
 }
 
-.menu {
-    display: flex;
-    flex-direction: column;
-    gap:30px;
-    padding-bottom: 30px;
-    width: 90%;
-    &__heading {
-        @include m.flex-row-around;
-        width: 100%;
-        position: relative;
-        & i {
-            font-size: 30px;
-            position: absolute;
-            top:40%;
-        }
-        & .fas {
-            color: transparent;
-            background:linear-gradient(to top, v.$colour-secondary, v.$colour-primary);
-            background-clip: text;
-            opacity: 0;
-            transition: all 200ms ease-in-out;
-            transform: scale(1);
-            &:hover {
-                opacity: 1;
-                transform: scale(1.2);
-                cursor: pointer;
-            }
-        }
-    }
-    & h3 {
-        font-family: 'Roboto', 'Raleway';
-        text-transform: uppercase;
-        font-weight: 350;
-        position: relative;
-        &::after {
-            content: '';
-            width: 50px;
-            height: 4px;
-            background: #99e2d0;
-            position: absolute;
-            left: 0px;
-            bottom: -10px;
-        }
-    }
-    &-dish-price {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-    }
-    &__block {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        position: relative;
-        overflow: hidden;
-        cursor: pointer;
-        border-radius: 20px;
-        flex-direction: column;
-        background-color:v.$white;
-        box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.1);
-        & >h4 {
-            padding: 20px 0px 5px 20px;
-            margin: 0px;
-        }
-        &__dish {
-            margin-left: 20px;
-            overflow: hidden;
-            white-space: nowrap;
-            width: 80%;
-            & >p {
-                padding:0px 0px 15px 0px;
-                margin:0px;
-                text-overflow: ellipsis;
-                overflow: hidden;
-            }
-        }
-        &__price {
-            padding-right: 20px;
-            padding-left: 5px;
-            font-weight: bold;
-        }
-        &__validation {
-            display: none;
-            position: absolute;
-            right: 0px;
-            height: 100%;
-            background-color: #99E2D0;
-            border-radius: 0px 20px 20px 0px;
-            padding: 0px 20px;
-            & i {
-                color:v.$white;
-                font-size: 30px;
-                -webkit-transform: rotate-in-center(180deg);
-                transform: rotate-in-center(180deg);
-                -webkit-animation: rotate-in-center 0.5s both;
-                animation: rotate-in-center 0.5s both;
-            }
-        }
-        &:hover .menu__block__validation {
-            @include m.flex-row;
-            transform-origin: right;
-            animation: scale-in-hor-right 0.5s ease-in-out;
-        }
-    }
-    & .menu__block:hover .menu-dish-price {
-        padding-right: 80px;
-        transition: 0.5s ease;
-        width: 80%;
-        @include m.desktop-only{
-            width: 95%;
-        }
-        @include m.tablet-only{
-            width: 90%;
-        }
-    }
-    &-container-btn {
-        @include m.flex-row;
-    }
-}
-
-.fa-gradient {
-	background: -webkit-gradient(linear, left top, left bottom, from(v.$colour-secondary), to(v.$colour-primary));
-	-webkit-background-clip: text;
-    background-clip: text;
-	-webkit-text-fill-color: transparent;
-}
 
 .loading-screen {
     position:fixed;
