@@ -53,6 +53,8 @@
     background: linear-gradient(180deg,variables.$colour-secondary 0%, variables.$colour-primary 100%);
 }
 
-@mixin shadow {
-
+@mixin overflow-menu {
+    margin:0px;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
